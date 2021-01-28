@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="myRabbitMQ:war">
+    <output-path>$PROJECT_DIR$/../../学习资料/springboot-springcloud-dubbo学习/idea-project/spring-boot 学习项目/myRabbitMQ/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>myRabbitMQ</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="myRabbitMQ.war">
+      <element id="artifact" artifact-name="myRabbitMQ:war exploded" />
+    </root>
+  </artifact>
+</component>

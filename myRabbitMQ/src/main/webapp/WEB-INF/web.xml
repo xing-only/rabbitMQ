@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app [
+        <!ELEMENT web-app (filter|filter-mapping|context-param|listener|servlet|servlet-mapping)*>
+        <!ATTLIST web-app
+                version CDATA #REQUIRED
+                xmlns CDATA #REQUIRED
+                xmlns:xsi CDATA #REQUIRED
+                xsi:schemaLocation CDATA #REQUIRED>
+        <!ELEMENT filter (filter-name|filter-class|init-param)*>
+        <!ELEMENT filter-name (#PCDATA)>
+        <!ELEMENT filter-class (#PCDATA)>
+        <!ELEMENT init-param (param-name|param-value)*>
+        <!ELEMENT param-name (#PCDATA)>
+        <!ELEMENT param-value (#PCDATA)>
+        <!ELEMENT filter-mapping (filter-name|url-pattern)*>
+        <!ELEMENT url-pattern (#PCDATA)>
+        <!ELEMENT context-param (param-name|param-value)*>
+        <!ELEMENT listener (listener-class)*>
+        <!ELEMENT listener-class (#PCDATA)>
+        <!ELEMENT servlet (servlet-name|servlet-class|load-on-startup)*>
+        <!ELEMENT servlet-name (#PCDATA)>
+        <!ELEMENT servlet-class (#PCDATA)>
+        <!ELEMENT load-on-startup (#PCDATA)>
+        <!ELEMENT servlet-mapping (servlet-name|url-pattern)*>
+        ]>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <filter>
+    <filter-name>CharacterEncoding</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>CharacterEncoding</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>demo</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>demo</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+</web-app>
